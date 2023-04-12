@@ -1,100 +1,113 @@
 program ejer4;
 const 
-	valorAlto='9999';
-	fechaAlta='99-99-9999';
+	valorAlto=9999;
+	n = 3;
 type
-	str4=string[4];
 	
-	info_terminal = record
-		cod_usuario:string;
+	info = record
+		cod_usuario:integer;
 		fecha:string;
 		tiempo_sesion:real; //Expresado en segundos
 	end;
 	
-	info_usuarios = record
-		cod_usuario:string;
-		fecha:string;
-		tiempo_total:real; //Expresado en segundos
-	end;
-	
-	detalle = file of info_terminal;
-	maestro = file of info_usuarios;
+	detalle = file of info;
+	maestro = file of info;
+	ar_detalle = array[1..n] of detalle;
+	ar_reg = array[1..n] of info;
 
-VAR
-	min,regd1,regd2,regd3,regd4,regd5:info_terminal;
-	det1,det2,det3,det4,det5:detalle;
-	regm:info_usuarios;
-	mae:maestro;
-	aux_min:info_terminal; aux_mae:info_usuarios;
-	total:real;
 	
-procedure leer(var archivo:detalle; var dato:info_terminal);
+procedure leer(var archivo:detalle; var dato:info);
 begin
-	if(not eof(Archivo) )then
+	if(not eof(archivo) )then
 		read(archivo,dato)
 	else
 		dato.cod_usuario:=valorAlto;
 end;
 
-procedure minimo(var r1,r2,r3,r4,r5:info_terminal; var min:info_terminal);
+procedure minimo(var detalles:ar_detalle; var registros:ar_reg; var min:info);
+var
+	i,indiceMin:integer;
 begin
-	if (r1.cod_usuario<r2.cod_usuario) and (r1.cod_usuario<r3.cod_usuario) and (r1.cod_usuario<r4.cod_usuario) and (r1.cod_usuario<r5.cod_usuario) then 
+	indiceMin:=0;
+	min.cod_usuario:=valorAlto;
+	for i:=1 to n do
+		if(registros[i].cod_usuario <> valorAlto) then
+			if ( registros[i].cod_usuario < min.cod_usuario) or ( (registros[i].cod_usuario = min.cod_usuario) and (registros[i].fecha < min.fecha) ) then
+			begin
+				min:=registros[i];
+				indiceMin:=i;
+			end;
+	if(indiceMin <> 0) then
+		leer(detalles[indiceMin],registros[indiceMin]);
+end;
+
+procedure crearMaestro(var mae:maestro; var det:ar_detalle);
+var
+	i:integer;
+	min,actual:info;
+	registro:ar_reg;
+begin
+	rewrite(mae);
+	for i:=1 to n do begin
+		reset(det[i]);
+		leer(det[i],registro[i]);
+	end;
+	
+	minimo(det,registro,min);
+	while(min.cod_usuario <> valorAlto) do
 	begin
-		min := r1;
-		leer(det1,r1);
-	end
-	else if (r2.cod_usuario<r3.cod_usuario) and (r2.cod_usuario<r4.cod_usuario) and (r2.cod_usuario<r5.cod_usuario) then
-	begin
-		min := r2;
-		leer(det2,r2);
-	end
-	else if (r3.cod_usuario<r4.cod_usuario) and (r3.cod_usuario<r5.cod_usuario) then
-	begin
-		min := r3;
-		leer(det3,r3);
-	end
-	else if (r4.cod_usuario<r5.cod_usuario) then
-	begin
-		min := r4;
-		leer(det4,r4);
-	end
-	else
-	begin
-		min := r5;
-		leer(det5,r5);
+		actual.cod_usuario := min.cod_usuario;
+		while(min.cod_usuario = actual.cod_usuario) do
+		begin
+			actual.fecha := min.fecha;
+			actual.tiempo_sesion:=0;
+			while(min.cod_usuario = actual.cod_usuario) and (min.fecha = actual.fecha) do
+			begin
+				actual.tiempo_sesion += min.tiempo_sesion;
+				minimo(det,registro,min);
+			end;
+			write(mae,actual);
+		end;
+	end;
+	for i:=1 to n do
+		close(det[i]);
+	close(mae);
+end;
+
+procedure imprimirMaestro (m:info);
+begin
+	with m do begin
+		writeln ('CODIGO: ',cod_usuario);
+		writeln ('FECHA: ',fecha);
+		writeln ('TIEMPO TOTAL DE SESIONES ABIERTAS: ',tiempo_sesion:0:2);
 	end;
 end;
-	
+
+procedure mostrarMaestro (var arc_maestro:maestro);
+var
+	m:info;
+begin
+	reset (arc_maestro);
+	while not eof (arc_maestro) do begin
+		read (arc_maestro,m);
+		imprimirMaestro(m);
+	end;
+	close (arc_maestro);
+end;
+
+VAR
+	mae:maestro;
+	det:ar_detalle;
+	i:integer;
+	numero:string;
 
 BEGIN
-	assign(mae,'maestro.dat');
-	assign(det1,'detalle1.dat');
-	assign(det2,'detalle2.dat');
-	assign(det3,'detalle3.dat');
-	assign(det4,'detalle4.dat');
-	assign(det5,'detalle5.dat');
-	reset(mae); reset(det1); reset(det2); reset(det3); reset(det4); reset(det5);
-	leer(det1, regd1); leer(det2, regd2); leer(det3, regd3); leer(det4, regd4); leer(det5, regd5);
-	minimo(regd1,regd2,regd3,regd4,regd5,min);
-	// Se procesan los archivos detalle
-	while (min.cod_usuario <> valoralto) do 
-	begin
-		//aux:= min;
-		regm.cod_usuario:=min.cod_usuario;
-		regm.fecha:=min.fecha;
-		while (min.cod_usuario = regm.cod_usuario) do 
-			total:=0;
-			regm.fecha:=min.fecha;
-		begin	
-			while(min.fecha = regm.fecha) do
-			begin
-				total := total + min.tiempo_sesion;
-				minimo (regd1,regd2,regd3,regd4,regd5,min);
-			end;
-			regm.tiempo_total := total;
-			write (mae, regm);
-		end;	
+	assign(mae,'maestro');
+	for i:=1 to n do begin
+		Str(i,numero);
+		assign(det[i],'detalle'+numero);
 	end;
-	
+	crearMaestro(mae,det);
+	mostrarMaestro(mae);
 END.
 
