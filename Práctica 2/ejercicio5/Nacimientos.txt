@@ -1,0 +1,109 @@
+NACIMIENTOS
+
+nro: 1
+nombre:Juan
+apellido:Perez
+direccion: pincen 105 0 2
+matri:AD351
+nom_ma: Maria
+ape_ma: Gimenez
+dni_ma: 1264624
+nom_pa: Pedro
+ape_pa: Perez
+dni_pa: 1564684
+
+nro: 2
+nombre:Tomas
+apellido:Bus
+direccion: Lib 342 2 1
+matri:AVDZ351
+nom_ma: Ana
+ape_ma: Gozs
+dni_ma: 1965128
+nom_pa: Jorge
+ape_pa: Bus
+dni_pa: 1164684
+
+nro: 3
+nombre:David
+apellido:Bertnard
+direccion: laweia 121 0 3
+matri:AD35GB
+nom_ma: Martina
+ape_ma: Diff
+dni_ma: 1612674
+nom_pa: Raul
+ape_pa: Bertnard
+dni_pa: 1235112
+----------------
+nro: 4
+nombre:Jack
+apellido:sparrow
+direccion: adgcc 33 0 1
+matri:AZMVN3
+nom_ma: Agus
+ape_ma: Agxxa
+dni_ma: 1264624
+nom_pa: Pepe
+ape_pa: pargela
+dni_pa: 1054942
+
+nro: 5
+nombre:Luis
+apellido:Pereyra
+direccion: monte 11 5 3
+matri:ARVV36
+nom_ma: Argolia
+ape_ma: Gringoch
+dni_ma: 1483624
+nom_pa: Pepe
+ape_pa: Pereyra
+dni_pa: 1425612
+
+nro: 6
+nombre:Juja
+apellido:Lag
+direccion: lobezno 123 7 2
+matri:ACVPP3
+nom_ma: Marga
+ape_ma: Ret
+dni_ma: 1264624
+nom_pa: Pedro
+ape_pa: Lag
+dni_pa: 2352675
+----------------
+nro: 7
+nombre:AAAA
+apellido:BBBB
+direccion: ABC 1 2 2
+matri:ASV41
+nom_ma: Juana
+ape_ma: Arco
+dni_ma: 2353534
+nom_pa: Penz
+ape_pa: BBBB
+dni_pa: 1099345
+
+nro: 8
+nombre:Justin
+apellido:Bieber
+direccion: miami 23 8 3
+matri:AIDS
+nom_ma: Miley
+ape_ma: Cancer
+dni_ma: 1154624
+nom_pa: Ken
+ape_pa: Bieber
+dni_pa: 1469860
+
+nro: 9
+nombre:Ken
+apellido:Levine
+direccion: zcaw 245 11 5
+matri:ACBFFD
+nom_ma: Sofia
+ape_ma: Nask
+dni_ma: 3466824
+nom_pa: Ganglio
+ape_pa: Levine
+dni_pa: 2353985

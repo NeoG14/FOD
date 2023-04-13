@@ -65,7 +65,7 @@ type
 	
 	maestro = file of master;
 	
-procedure leerNac(var archivo:detalle_nac; dato:nac);
+procedure leerNac(var archivo:detalle_nac; var dato:nac);
 begin
 	if(not eof(archivo)) then
 		read(archivo,dato)
@@ -73,7 +73,7 @@ begin
 		dato.nro:=valorAlto;
 end;
 
-procedure leerDef(var archivo:detalle_def; dato:def);
+procedure leerDef(var archivo:detalle_def; var dato:def);
 begin
 	if(not eof(archivo)) then
 		read(archivo,dato)
@@ -90,8 +90,9 @@ begin
 	for i:=1 to N do
 		if(ar_reg[i].nro <> valorAlto) then
 			if(ar_reg[i].nro < min.nro) then
+			if(ar_reg[i].nro < min.nro) then
 			begin
-				min := ar_reg[i];
+				min:=ar_reg[i];
 				indiceMin:=i;
 			end;
 	if(indiceMin <> 0) then
@@ -116,18 +117,19 @@ begin
 end;
 
 
-procedure crearMaestro(var mae:maestro; var det_nac:ar_nac; var det_def:ar_def);
+procedure crearMaestro(var mae:maestro; var det_nac:ar_nac; var det_def:ar_def; var registros_nac:reg_nac; var registros_def:reg_def);
 var
-	registros_nac:reg_nac;
-	registros_def:reg_def;
+	
 	min_nac:nac; min_def:def;
 	regm:master;
 	i:integer;
 begin
+	rewrite(mae);
 	for i:=1 to N do
 	begin
-		read(det_nac[i],registros_nac[i]);
-		read(det_def[i],registros_def[i]);
+		reset(det_nac[i]); reset(det_def[i]);
+		leerNac(det_nac[i],registros_nac[i]);
+		leerDef(det_def[i],registros_def[i]);
 	end;
 	minimoNac(det_nac,registros_nac,min_nac);
 	minimoDef(det_def,registros_def,min_def);
@@ -144,23 +146,20 @@ begin
 		regm.nom_pa:=min_nac.nom_pa;
 		regm.ape_pa:=min_nac.ape_pa;
 		regm.dni_pa:=min_nac.dni_pa;
-		if(min_def.nro <> valorAlto) then
+		if(min_def.nro <> valorAlto) and (min_nac.nro = min_def.nro)then
 		begin
-			if(regm.nro = min_def.nro) then
-			begin
 				regm.matri_def:=min_def.matri;
 				regm.fecha:=min_def.fecha;
 				regm.hora:=min_def.hora;
 				regm.lugar:=min_def.lugar;
-			end
-			else
-			begin
-				regm.matri_def:='No ha fenecido';
-				regm.fecha:='No ha fenecido';
-				regm.hora:='No ha fenecido';
-				regm.lugar:='No ha fenecido';
-			end;
-			minimoDef(det_def,registros_def,min_def);
+				minimoDef(det_def,registros_def,min_def);
+		end
+		else
+		begin
+			regm.matri_def:='No ha fenecido';
+			regm.fecha:='No ha fenecido';
+			regm.hora:='No ha fenecido';
+			regm.lugar:='No ha fenecido';
 		end;
 		minimoNac(det_nac,registros_nac,min_nac);
 		write(mae,regm);
@@ -199,6 +198,7 @@ procedure mostrarMaestro (var arc_maestro:maestro);
 var
 	m:master;
 begin
+	writeln('###########MAESTRO###########');
 	reset (arc_maestro);
 	while not eof (arc_maestro) do begin
 		read (arc_maestro,m);
@@ -207,14 +207,51 @@ begin
 	close (arc_maestro);
 end;
 
+procedure listarMaestro(var info:text; var mae:maestro);
+var
+	r:master;
+begin
+	reset(mae); rewrite(info);
+	while(not eof(mae))do
+	begin
+		read(mae,r);
+		with r do
+		begin
+			writeln (info,'NUMERO: ',nro);
+			writeln (info,'NOMBRE: ',nombre);
+			writeln (info,'APELLIDO: ',apellido);
+			writeln (info,'DIRECCION: ',direccion.calle,' NUMERO: ',direccion.nro,' PISO: ',direccion.piso,' DEPTO: ',direccion.depto,' CIUDAD: ',direccion.ciudad);
+			writeln (info,'MATRICULA: ',matri);
+			writeln (info,'NOMBRE MADRE: ',nom_ma);
+			writeln (info,'APELLIDO MADRE: ',r.ape_ma);
+			writeln (info,'DNI MADRE: ',dni_ma);
+			writeln (info,'NOMBRE PADRE: ',nom_pa);
+			writeln (info,'APELLIDO PADRE: ',ape_pa);
+			writeln (info,'DNI PADRE: ',dni_pa);
+			writeln (info,'MEDICO DEFUNCION: ',matri_def);
+			writeln (info,'FECHA: ',fecha);
+			writeln (info,'HORA: ',hora);
+			writeln (info,'LUGAR: ',lugar);
+			writeln (info,'##############################');
+		end;
+	end;
+	close(mae); close(info);
+end;
+
+
 var
 	mae:maestro;
 	detalle_nacimientos:ar_nac;
 	detalle_defunciones:ar_def;
 	i:integer;
 	numero:string;
+	registros_nac:reg_nac;
+	registros_def:reg_def;
+	info:text;
+	
 
 BEGIN
+	assign(info,'informacion.txt');
 	assign(mae,'maestro');
 	for i:=1 to N do
 	begin
@@ -222,7 +259,8 @@ BEGIN
 		assign(detalle_nacimientos[i],'detalleNAC'+numero);
 		assign(detalle_defunciones[i],'detalleDEF'+numero);
 	end;
-	crearMaestro(mae,detalle_nacimientos,detalle_defunciones);
+	crearMaestro(mae,detalle_nacimientos,detalle_defunciones,registros_nac,registros_def);
+	mostrarMaestro(mae);
+	listarMaestro(info,mae);
 	
 END.
-

@@ -38,7 +38,6 @@ type
 		lugar:string;
 	end;
 
-
 	detalle_nac = file of nac;
 	detalle_def = file of def;
 	ar_nac = array[1..n] of detalle_nac;
@@ -52,7 +51,12 @@ begin
 		if (nro <> -1) then begin
 			write('INGRESE NOMBRE: '); readln(nombre);
 			write('INGRESE APELLIDO: '); readln(apellido);
-			write('INGRESE DIRECCION: Calle: '); read(direccion.calle); write(' NUMERO: ');read(direccion.nro); write(' PISO: '); read(direccion.piso); write(' DEPTO: '); read(direccion.depto); write(' CIUDAD: '); readln(direccion.ciudad);
+			writeln('INGRESE DIRECCION:');
+			write(' CALLE: '); readln(direccion.calle); 
+			write(' NUMERO: ');readln(direccion.nro); 
+			write(' PISO: '); readln(direccion.piso); 
+			write(' DEPTO: '); readln(direccion.depto); 
+			write(' CIUDAD: '); readln(direccion.ciudad);
 			write('INGRESE MATRICULA: ');readln(matri);
 			write('INGRESE NOMBRE MADRE: ');readln(nom_ma);
 			write('INGRESE APELLIDO MADRE: ');readln(ape_ma);
@@ -67,6 +71,7 @@ end;
 
 procedure imprimirNac (r:nac);
 begin
+	writeln ('##########NACIMIENTOS##########');
 	with r do begin
 		writeln ('NUMERO: ',nro);
 		writeln ('NOMBRE: ',nombre);
@@ -127,6 +132,7 @@ end;
 
 procedure imprimirDef (r:def);
 begin
+	writeln ('##########DEFUNCIONES##########');
 	with r do begin
 		writeln ('NUMERO: ',nro);
 		writeln ('DNI: ',dni);
@@ -136,7 +142,6 @@ begin
 		writeln ('FECHA: ',fecha);
 		writeln ('HORA: ',hora);
 		writeln ('LUGAR: ',lugar);
-
 	end;
 end;
 
