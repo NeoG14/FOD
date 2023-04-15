@@ -1,0 +1,30 @@
+cod: 111
+nom: Bazooka
+precio: 20
+stock_act: 450
+stock_min: 100
+-----------------
+cod: 222
+nom: Bobaloo
+precio: 45
+stock_act: 300
+stock_min: 250
+-----------------
+cod: 333
+nom: Donuts
+precio: 133
+stock_act: 330
+stock_min: 200
+-----------------
+cod: 444
+nom: Block
+precio: 349
+stock_act: 950
+stock_min: 120
+-----------------
+cod: 555
+nom: Casancrem
+precio: 890
+stock_act: 150
+stock_min: 35
+-----------------
