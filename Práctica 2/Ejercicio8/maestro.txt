@@ -1,0 +1,112 @@
+cod: 1
+nombre: Juan Perez
+anio: 2023
+mes: 1
+dia: 1
+monto:50
+##############
+cod: 1
+nombre: Juan Perez
+anio: 2023
+mes: 1
+dia: 2
+monto:120
+##############
+cod: 1
+nombre: Juan Perez
+anio: 2023
+mes: 1
+dia: 3
+monto:150
+##############---------Total Mensual 1 = 320
+cod: 1
+nombre: Juan Perez
+anio: 2023
+mes: 3
+dia: 2
+monto:100
+##############---------Total Mensual 3 = 100
+cod: 1
+nombre: Juan Perez
+anio: 2023
+mes: 5
+dia: 2
+monto:250
+##############---------Total Mensual 5 = 250
+cod: 1
+nombre: Juan Perez
+anio: 2023
+mes: 12
+dia: 2
+monto:150
+--------------------Total Mensual 12 = 150
+---------------------Total Anual = 820
+
+##############
+cod: 4
+nombre: Ramon Gimenez
+anio: 2023
+mes: 5
+dia: 4
+monto: 900
+##############
+cod: 4
+nombre: Ramon Gimenez
+anio: 2023
+mes: 5
+dia: 4
+monto: 900
+##############-------Total mensual 5 = 1800
+cod: 4
+nombre: Ramon Gimenez
+anio: 2023
+mes: 6
+dia: 4
+monto: 1900
+##############-------Total mensual 6 = 1900
+cod: 4
+nombre: Ramon Gimenez
+anio: 2023
+mes: 9
+dia: 4
+monto: 500
+----------------Total mensual 9 = 500
+----------------Total Anual = 4200
+
+##############
+cod: 8
+nombre: Rocio Lunge
+anio: 2023
+mes: 4
+dia: 2
+monto: 1000
+##############
+cod: 8
+nombre: Rocio Lunge
+anio: 2023
+mes: 4
+dia: 6
+monto: 1000
+############## ----- Total mensual 4= 2000
+cod: 8
+nombre: Rocio Lunge
+anio: 2023
+mes: 10
+dia: 2
+monto: 10000
+----------------- Total mensual 8=10000
+----------------- Total Anual=12000
+
+
+##############
+cod: 1
+nombre: Juan Perez
+anio: 2024
+mes: 6
+dia: 2
+monto:6000
+----------- Total anual =6000;
+
+
+
+TOTAL GENERAL = 23020
