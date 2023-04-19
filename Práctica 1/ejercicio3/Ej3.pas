@@ -1,4 +1,5 @@
 program Ejercicio3;
+
 type
 	empleado = record
 		num:string;
@@ -148,7 +149,7 @@ begin
 	end;
 	close(empleados);
 end;
-
+//punto 4b
 procedure modificarEdad(var empleados:archivo);
 var
 	num:string;
@@ -160,9 +161,7 @@ begin
 	while(num<> '-1') do
 	begin
 		while( (emp.num<>'-1') and (num<>emp.num) ) do
-		begin
 			leerArchivo(empleados,emp);
-		end;
 		if(num=emp.num)then
 		begin
 			writeln('Ingrese la nueva edad'); readln(emp.edad);
@@ -213,12 +212,12 @@ begin
 		read(empleados,emp);
 		if(emp.dni='00')then
 		begin
-		writeln(emp_txt,'nombre: ',emp.nombre);
-		writeln(emp_txt,'apellido: ',emp.apellido);
-		writeln(emp_txt,'numero de empleado: ',emp.num);
-		writeln(emp_txt,'dni: ',emp.dni);
-		writeln(emp_txt,'edad: ',emp.edad);
-		writeln(emp_txt,'--------------------------------');
+			writeln(emp_txt,'nombre: ',emp.nombre);
+			writeln(emp_txt,'apellido: ',emp.apellido);
+			writeln(emp_txt,'numero de empleado: ',emp.num);
+			writeln(emp_txt,'dni: ',emp.dni);
+			writeln(emp_txt,'edad: ',emp.edad);
+			writeln(emp_txt,'--------------------------------');
 		end;
 	end;
 	close(emp_txt);
@@ -231,7 +230,7 @@ begin
 	writeln('1- Crear archivo de empleados');
 	writeln('2- Listar empleados por nombre o apellido');
 	writeln('3- Listar Todos los empleados');
-	writeln('4- Listar todos los empleados mayores a 70 años');
+	writeln('4- Listar todos los empleados mayores a 70 anios');
 	writeln('5- Agregar empleados al archivo');
 	writeln('6- Modificar edad de empleados');
 	writeln('7- Exportar datos a texto');
@@ -252,23 +251,25 @@ begin
 	while(opc<>0) do
 	begin
 		case opc of
-		1:crearArchivo(arc);
-		2:crearArchivo(arc);
-		3:crearArchivo(arc);
-		4:crearArchivo(arc);
-		5:crearArchivo(arc);
-		6:crearArchivo(arc);
-		7:crearArchivo(arc);
-		8:crearArchivo(arc);
-		else writeln('Opcion Incorrecta');
-		mostrarMenu();
-		readln(opc);
+			1:crearArchivo(arc);
+			2:listarPorNombre(arc);
+			3:listarEmpleados(arc);
+			4:listaEmpleadosMayores(arc);
+			5:cargarEmpleados(arc);
+			6:modificarEdad(arc);
+			7:exportarATxt(arc);
+			8:exportarSinDni(arc);
+			else 
+				writeln('Opcion Incorrecta');
+			mostrarMenu();
+			readln(opc);
+		end;
 	end;
 end;
-	
-var
-	arc:archivo;
-BEGIN
-	ejercutarPrograma(arc:archivo);
-END.
 
+VAR
+ 	arc:archivo;
+
+BEGIN
+	ejercutarPrograma(arc);
+END.
