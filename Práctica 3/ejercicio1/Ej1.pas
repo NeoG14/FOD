@@ -228,6 +228,43 @@ begin
 	close(empleados);
 end;
 
+// Eliminar
+procedure eliminar(var empleados:archivo);
+var
+	emp:empleado;
+	num:string;
+	i,pos:integer;
+	arc_nuevo:archivo;
+begin
+	reset(empleados);
+	assign(arc_nuevo,'empleados_nuevo.dat');
+	write('Ingrese numero de empleado a eliminar: '); readln(num);
+	leerArchivo(empleados,emp);
+	while( (emp.num<>'-1') and (num<>emp.num) ) do
+	begin
+		leerArchivo(empleados,emp);
+	end;
+	if(num=emp.num)then
+	begin
+		rewrite(arc_nuevo);
+		pos:=filepos(empleados)-1;
+		seek(empleados,filesize(empleados)-1);
+		read(empleados,emp);
+		seek(empleados,pos);
+		write(empleados,emp);
+		seek(empleados,0);
+		for i:=0 to (filesize(empleados)-2) do
+		begin
+			read(empleados,emp);
+			write(arc_nuevo,emp);
+		end;
+		close(arc_nuevo);
+	end
+	else
+		writeln('No se encontro el numero ingresado');
+	close(empleados);
+end;
+
 
 procedure mostrarMenu();
 begin
@@ -240,6 +277,8 @@ begin
 	writeln('6- Modificar edad de empleados');
 	writeln('7- Exportar datos a texto');
 	writeln('8- Exportar empleados sin dni a texto');
+	writeln('9- Eliminar Empleado');
+	writeln('10- Cambiar de archivo');
 	writeln('0- SALIR');
 	writeln('------------------------------------------------');
 end;
@@ -264,6 +303,12 @@ begin
 			6:modificarEdad(arc);
 			7:exportarATxt(arc);
 			8:exportarSinDni(arc);
+			9:eliminar(arc);
+			10:
+			begin
+				write('ingrese nombre del archivo para trabajar: '); readln(nombre);
+				assign(arc,nombre);
+			end;
 			else 
 				writeln('Opcion Incorrecta');
 		end;
