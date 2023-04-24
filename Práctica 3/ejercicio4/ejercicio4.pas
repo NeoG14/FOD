@@ -56,7 +56,7 @@ begin
 	else //Sino
 	begin
 		seek(arc,filesize(arc)); //me posiciono al final
-		write(arc,reg); //escribo el registro
+		write(arc,reg); //escribo el registro 
 	end;
 	close(arc);
 end;
