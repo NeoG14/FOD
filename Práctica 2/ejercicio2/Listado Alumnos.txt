@@ -1,4 +1,0 @@
-codigo alumno: 3434
-nombre: nicolas alvarez
-cantidad cursadas: 12
-cantidad finales: 2
