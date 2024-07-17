@@ -1,0 +1,18 @@
+Numero: 2545
+Nombre: David
+Apellido: Berthnard
+Edad: 25
+DNI: 00
+-----------
+Numero: 2596
+Nombre: Tomas
+Apellido: Bus
+Edad: 25
+DNI: 00
+-----------
+Numero: 3199
+Nombre: Homero
+Apellido: Simpson
+Edad: 40
+DNI: 00
+-----------

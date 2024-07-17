@@ -1,0 +1,60 @@
+Numero: 1414
+Nombre: Nicolas
+Apellido: Alvarez
+Edad: 25
+DNI: 41899909
+-----------
+Numero: 4352
+Nombre: Miguelina
+Apellido: Biela
+Edad: 50
+DNI: 17298291
+-----------
+Numero: 1611
+Nombre: Rocio
+Apellido: Lunge
+Edad: 25
+DNI: 42392345
+-----------
+Numero: 2545
+Nombre: David
+Apellido: Berthnard
+Edad: 25
+DNI: 00
+-----------
+Numero: 2596
+Nombre: Tomas
+Apellido: Bus
+Edad: 25
+DNI: 00
+-----------
+Numero: 495
+Nombre: Jorge
+Apellido: Ramirez
+Edad: 33
+DNI: 23525968
+-----------
+Numero: 5975
+Nombre: Florencia
+Apellido: Alvarez
+Edad: 31
+DNI: 39572295
+-----------
+Numero: 2012
+Nombre: Julian
+Apellido: Alvarez
+Edad: 33
+DNI: 39530531
+-----------
+Numero: 2312
+Nombre: Ricardo
+Apellido: Darin
+Edad: 36
+DNI: 34916295
+-----------
+Numero: 3199
+Nombre: Homero
+Apellido: Simpson
+Edad: 40
+DNI: 00
+-----------
