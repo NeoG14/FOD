@@ -1,0 +1,6 @@
+345 235.00  LG
+0 230  Celular LG tactil
+KP-570
+231 3456.00  Samsung
+0 25  Samsung saca su nuevo celular empresarial
+Note 2
