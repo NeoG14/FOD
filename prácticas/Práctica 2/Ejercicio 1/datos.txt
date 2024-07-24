@@ -1,0 +1,7 @@
+45 300 Juan
+45 500 Juan
+45 50 Juan
+60 200 Agus
+77 100 Pedro
+77 1200 Pedro
+100 500 Tomas

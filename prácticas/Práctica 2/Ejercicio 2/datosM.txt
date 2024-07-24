@@ -1,0 +1,21 @@
+5 5 5
+Lautaro
+Martinez
+12 5 5
+Pedro
+Gomez
+35 10 4
+Tomas
+Bus
+37 5 5
+Julian
+Alvarez
+40 6 6
+Jorge
+Videla
+50 5 10
+Juan
+Walter
+66 21 5
+Pepe
+Argento
