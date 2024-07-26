@@ -1,0 +1,18 @@
+Noisette
+Papas Noisette congeladas
+6 200 30 200
+Papas
+Papas congeladas MCFRY
+10 500 100 350
+Medallones
+Medallones de merluza
+15 250 50 400
+Patitas
+Patitas Granja del Sol
+25 1000 250 500
+Brocoli
+Brocolis congelados
+60 200 30 200
+Chauchas
+Chauchas congelados
+70 200 30 200

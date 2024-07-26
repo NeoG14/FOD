@@ -1,0 +1,8 @@
+Buenos Aires
+100 200
+Chaco
+50 120
+Misiones
+40 50
+Salta
+50 100

@@ -1,0 +1,12 @@
+10 15 5 250
+taza
+15 12 10 300
+Cuchara
+20 15 20 120
+Broches
+65 35 10 400
+Bong
+90 25 45 235
+Pelapapas
+125 25 10 100
+Rejilla

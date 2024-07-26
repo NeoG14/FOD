@@ -1,0 +1,3 @@
+Codigo: 15 |Nombre: Cuchara |Precio: 300.00 |Stock Actuak: 6 |stock Minimo: 10
+Codigo: 20 |Nombre: Broches |Precio: 120.00 |Stock Actuak: 15 |stock Minimo: 20
+Codigo: 90 |Nombre: Pelapapas |Precio: 235.00 |Stock Actuak: 25 |stock Minimo: 45
