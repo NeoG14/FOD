@@ -1,4 +1,6 @@
 program ejer4;
+
+
 type
 	dni=string[8];
 	str=string[30];

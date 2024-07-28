@@ -1,0 +1,98 @@
+Localidad A
+101
+Municipio X
+1001
+Hospital 1
+501
+10
+Localidad A
+101
+Municipio Y
+1002
+Hospital 1
+501
+10
+Localidad A
+101
+Municipio Y
+1002
+Hospital 1
+501
+10
+Localidad B
+102
+Municipio Y
+1002
+Hospital 2
+502
+20
+Localidad C
+103
+Municipio Z
+1003
+Hospital 3
+503
+30
+Localidad D
+104
+Municipio W
+1004
+Hospital 4
+504
+40
+Localidad D
+104
+Municipio W
+1004
+Hospital 4
+504
+40
+Localidad E
+105
+Municipio V
+1005
+Hospital 5
+505
+50
+Localidad F
+106
+Municipio U
+1006
+Hospital 6
+506
+60
+Localidad G
+107
+Municipio T
+1007
+Hospital 7
+507
+70
+Localidad H
+108
+Municipio S
+1008
+Hospital 8
+508
+80
+Localidad I
+109
+Municipio R
+1009
+Hospital 9
+509
+90
+Localidad J
+110
+Municipio Q
+1010
+Hospital 10
+510
+100
+Localidad J
+110
+Municipio Q
+1010
+Hospital 10
+510
+100
