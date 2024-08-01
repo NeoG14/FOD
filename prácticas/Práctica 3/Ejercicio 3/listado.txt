@@ -1,0 +1,7 @@
+Codigo: 99 |Genero: Mas |Nombre: NSDX |Director: SRDD |Duracion: 345 |Precio: 3495.00
+Codigo: 21 |Genero: Comedia |Nombre: Click |Director: Adam sandler |Duracion: 78 |Precio: 35918.00
+Codigo: 23 |Genero: Nisa |Nombre: KASLiew |Director: Pedrito |Duracion: 222 |Precio: 333.00
+Codigo: 4 |Genero: DFSD |Nombre: DSFSDF |Director: ERERER |Duracion: 53 |Precio: 436.00
+Codigo: 984 |Genero: Accion |Nombre: Kill bill |Director: Tarantino |Duracion: 98 |Precio: 98039.00
+Codigo: 23 |Genero: xZZZ |Nombre: WEQQWE |Director: ADA |Duracion: 345 |Precio: 42442.00
+Codigo: 454 |Genero: DFS |Nombre: 45FD |Director: DFDF |Duracion: 45 |Precio: 33.00

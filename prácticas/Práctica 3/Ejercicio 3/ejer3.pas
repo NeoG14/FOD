@@ -4,8 +4,7 @@ const valorAlto=9999;
 
 type
 	novela=record
-		//cabecera:integer;
-		codigo:integer;
+		codigo:integer;//Se usa como  cabecera
 		genero:string;
 		nombre:string;
 		duracion:integer;
@@ -33,7 +32,7 @@ begin
 		readln(reg.genero);
 		write('nombre: ');
 		readln(reg.nombre);
-		write('duración: ');
+		write('duracion: ');
 		readln(reg.duracion);
 		write('director: ');
 		readln(reg.director);
@@ -106,7 +105,7 @@ begin
 		readln(reg.genero);
 		write('nombre: ');
 		readln(reg.nombre);
-		write('duración: ');
+		write('duracion: ');
 		readln(reg.duracion);
 		write('director: ');
 		readln(reg.director);
@@ -137,7 +136,8 @@ begin
 	begin
 		seek(arch,filepos(arch)-1);//me posiciono en el registro a borrar
 		write(arch,cabecera);//escribo la cabecera
-		cabecera.codigo:= (filepos(arch)-1)*-1;//guardo en el reg cabecera la posicion del ultimo borrado
+		cabecera.codigo:= (filepos(arch)-1)*-1;//guardo en el reg cabecera
+											  //la posicion del ultimo borrado
 		seek(arch,0);//me posiciono en la cabecera
 		write(arch,cabecera);//actualizo la cabecera
 	end
@@ -146,10 +146,79 @@ begin
 	close(arch);
 end;
 
+procedure listar(var arch:archivo);
+var
+	lista:text;
+	reg:novela;
+begin
+	reset(arch);
+	assign(lista,'listado.txt');
+	rewrite(lista);
+	while(not eof(arch))do
+	begin
+		read(arch,reg);
+		if(reg.codigo>0)then
+			writeln(lista,'Codigo: ',reg.codigo,' |Genero: ',reg.genero,' |Nombre: ',reg.nombre,' |Director: ',reg.director,' |Duracion: ',reg.duracion,' |Precio: ',reg.precio:0:2);
+	end;
+	close(lista); close(arch);
+end;
+
+procedure mostrar_archivo(var arch:archivo);
+var
+	reg:novela;
+begin
+	reset(arch);
+	leer(arch,reg);
+	leer(arch,reg);
+	while(reg.codigo<>valorAlto)do
+	begin
+		writeln('Codigo: ',reg.codigo,' |Genero: ',reg.genero,' |Nombre: ',reg.nombre,' |Director: ',reg.director,' |Duracion: ',reg.duracion,' |Precio: ',reg.precio:0:2);
+		leer(arch,reg);
+	end;
+	close(arch);
+end;
+
+procedure menu(var arch:archivo);
+var
+	nombre:string;
+	op:integer;
+begin
+	write('Ingrese nombre del archivo a trabajar: ');
+	readln(nombre);
+	assign(arch,nombre);
+	writeln('1- Agregar novela');
+	writeln('2- Modificar novela');
+	writeln('3- Eliminar novela');
+	writeln('4- Mostrar archivo');
+	writeln('5- Exportar listado');
+	writeln('0- Salir');
+	readln(op);
+	while(op<>0)do
+	begin
+		case op of
+			1:alta_novela(arch);
+			2:modificar_novela(arch);
+			3:baja_novela(arch);
+			4:mostrar_archivo(arch);
+			5:listar(arch);
+			0:break;
+		else
+			writeln('Opcion Incorrectado');
+		end;
+		writeln('1- Agregar novela');
+		writeln('2- Modificar novela');
+		writeln('3- Eliminar novela');
+		writeln('4- Mostrar archivo');
+		writeln('5- Exportar listado');
+		writeln('0- Salir');
+		readln(op);
+	end;
+end;
+
 var
 	arch:archivo;
 	
 BEGIN
-	
-	
+	//crear_archivo(arch);
+	menu(arch);
 END.

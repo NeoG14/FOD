@@ -1,0 +1,36 @@
+Informe de ventas de la empresa
+Sucursal 24
+Empleado DNI:41899909
+Año    Cantidad de ventas    Monto de ventas:
+2020    2    1750.00
+2021    2    1200.00
+Totales: 4    2950.00
+Empleado DNI:42899909
+Año    Cantidad de ventas    Monto de ventas:
+2021    3    3000.00
+Totales: 3    3000.00
+Cantidad total de ventas sucursal: 7
+Monto total vendido por sucursal: 5950.00
+Sucursal 26
+Empleado DNI:43547898
+Año    Cantidad de ventas    Monto de ventas:
+2019    1    15000.00
+2020    1    750.00
+2024    1    500.00
+Totales: 3    16250.00
+Cantidad total de ventas sucursal: 3
+Monto total vendido por sucursal: 16250.00
+Sucursal 32
+Empleado DNI:43456879
+Año    Cantidad de ventas    Monto de ventas:
+2022    2    10500.00
+Totales: 2    10500.00
+Empleado DNI:43456857
+Año    Cantidad de ventas    Monto de ventas:
+2022    2    2490.00
+2024    1    1245.00
+Totales: 3    3735.00
+Cantidad total de ventas sucursal: 5
+Monto total vendido por sucursal: 14235.00
+Cantidad total de la empresa: 15
+Monto total vendido por la empresa: 36435.00
